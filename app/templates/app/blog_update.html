@@ -1,0 +1,110 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Inline styles for the form */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .form {
+            width: 40%;
+            padding: 20px;
+            border: 2px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form .form-fields {
+            margin-bottom: 15px;
+        }
+
+        /* Set text size to 16px */
+        .form, .form .form-fields, .form .submit-button input, .form .back-button a {
+            font-size: 16px;
+        }
+
+        .form .submit-button {
+            text-align: center;
+        }
+
+        .form .submit-button input {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form .back-button a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 50%;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Title Styling */
+        .title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            margin-top: 50px; /* Added top margin */
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Title with Centering -->
+    <h1 class="title">Edit Post</h1>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <form action="{% url 'blog_update' object.pk %}" method="post" class="form">
+            {% csrf_token %}
+            <!-- Form Fields with Spacing -->
+            <div class="form-fields">
+                {{ form.as_p }}
+            </div>
+            
+            <!-- Submit Button with Styling -->
+            <div class="submit-button">
+                <input type="submit" value="Update">
+            </div>
+             <!-- Back to Blog Button -->
+            <div class="back-button">
+                <a href="{% url 'blog' %}">Back to Blog List</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

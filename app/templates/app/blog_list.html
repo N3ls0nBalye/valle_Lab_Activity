@@ -1,0 +1,64 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .content-wrapper {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-entry {
+        margin-bottom: 50px;
+        padding: 15px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .post-entry h2 a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .post-entry h2 a:hover {
+        color: #007bff;
+    }
+
+    .nav-right {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .nav-right a {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .nav-right a:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="nav-right">
+        <a href="{% url 'blog_create' %}">+ New Blog Post</a>
+    </div>
+    
+    {% for post in posts %}
+        <div class="post-entry">
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

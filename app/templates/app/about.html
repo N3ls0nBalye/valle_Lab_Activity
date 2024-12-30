@@ -1,0 +1,19 @@
+{% extends 'app/base.html'%}
+{% load static %}
+
+{% block content %}
+ <div class="about-container">
+        <div class="image-container">
+            <img src="{% static 'images/pictureofme.jpg' %}" alt="Your Image">
+        </div>
+        <div class="text-container">
+            <h1>About Me</h1>
+            <p>
+                Hi, I'm Valle, Nelson Jr G, a future web developer passionate about
+                creating interactive and engaging websites.
+                I enjoy working with HTML, CSS, and JavaScript to bring ideas to life.
+                In my free time, I like learning new web technologies and experimenting with designs.
+            </p>
+        </div>
+    </div>
+{% endblock content %}

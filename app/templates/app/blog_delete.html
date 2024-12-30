@@ -1,0 +1,90 @@
+{% extends 'app/base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Page Title */
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Form Container Styling */
+    .delete-form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        width: 50%;
+        margin: 50px auto;
+        padding: 30px;
+        border: 2px solid #ccc;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    /* Styled Paragraph */
+    .confirmation-message {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    /* Submit Button Styling */
+    .delete-btn {
+        padding: 12px 25px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .delete-btn:hover {
+        background-color: #e53935;
+    }
+
+    /* Cancel Button Styling */
+    .cancel-btn {
+        padding: 12px 25px;
+        background-color: #2196F3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+
+    .cancel-btn:hover {
+        background-color: #1976D2;
+    }
+</style>
+
+<!-- Form Container for the Delete Post Confirmation -->
+<div class="delete-form-container">
+    <h1>Delete Post</h1>
+
+    <form action="{% url 'blog_delete' post.pk %}" method="post">
+        {% csrf_token %}
+        <p class="confirmation-message">Are you sure you want to delete the post titled "<strong>{{ post.title }}</strong>"?</p>
+
+        <!-- Submit and Cancel Buttons -->
+        <div style="text-align: center;">
+            <input type="submit" value="Confirm Deletion" class="delete-btn">
+        </div>
+
+        <div style="text-align: center;">
+            <a href="{% url 'blog' %}" class="cancel-btn">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

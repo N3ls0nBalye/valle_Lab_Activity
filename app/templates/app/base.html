@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Did you Know?</title>
+    <link rel="stylesheet" href="{%static 'css/base.css' %}">
+    <link rel="icon" href="{% static 'images/favicon_NV.ico' %}">
+</head>
+<body class="light-mode">
+    {% include 'app/navbar.html' %}
+    {% block content %}
+            <!--pages-->
+
+
+    {% endblock content %}
+    <footer>
+        <p>© 2024 MyWeb_VALLE_NElSON_JR_G. All Rights Reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>

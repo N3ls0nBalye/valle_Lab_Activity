@@ -1,0 +1,31 @@
+{% extends 'app/base.html'%}
+{% load static %}
+
+{% block content %}
+     <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Web App</h1>
+            <p>Lets know about Valle Nelson Jr G. </p>
+        </div>
+    </section>
+ <section class="content">
+        <div class="content-container">
+            <img src="{% static 'images/pic1.jpg' %}" alt="Sample Image">
+            <h2>What's unique about it? </h2>
+            <p>This logo show the initianl,
+                letter N that stands for Nelson also symbolize ideas like novelty,
+                navigation, or network, representing innovation, direction, or connection.
+                the letter V stands for Valle symbolize victory, vision, or
+                vitality, associated with success, forward-thinking, or energy.
+                this logo represent <br>
+                <br>
+                This logo could thus represent Me that
+                emphasizes vision, strength, and modernity, depending on the
+                stylistic choices made for the logo.
+
+
+            </p>
+        </div>
+    </section>
+
+{% endblock content %}

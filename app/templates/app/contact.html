@@ -1,0 +1,21 @@
+{% extends 'app/base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="con_container">
+        <h1>Contact Us</h1>
+        <div class="con_contact-info">
+            <p>Email: <a href="mailto:example@example.com">jv232106@gmail.com</a></p>
+            <p>Phone: <a href="tel:+123456789">09152190109</a></p>
+            <p>paliparan 3 Dasmariñas</p>
+        </div>
+
+        <h2>Send a Message</h2>
+        <form id="con_contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+{% endblock content %}
