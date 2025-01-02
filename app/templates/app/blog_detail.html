@@ -81,6 +81,22 @@
         margin: 0;
     }
 
+    /* Image Box Styling */
+    .image-box {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .image-box img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+    }
+
     /* Body Box Styling */
     .body-box {
         background-color: #fff;
@@ -116,13 +132,20 @@
     }
 </style>
 
-<!-- Form Container for the Post Entry (Title and Body) -->
+<!-- Form Container for the Post Entry (Title, Image, and Body) -->
 <div class="form-container">
     <!-- Title Box -->
     <div class="title-box">
         <label style="font-weight: bold;">Title:</label>
         <h2>{{ post.title }}</h2>
     </div>
+
+    <!-- Image Box -->
+    {% if post.image %}
+    <div class="image-box">
+        <img src="{{ post.image.url }}" alt="Blog Image">
+    </div>
+    {% endif %}
 
     <!-- Body Box -->
     <div class="body-box">
